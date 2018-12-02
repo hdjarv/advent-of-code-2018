@@ -1,17 +1,19 @@
 print("Advent of Code 2018 - Day 1")
 
+
 def read_file_into_int_list(name):
-  input_file = open(name)
+    input_file = open(name)
 
-  indata = input_file.read();
-  indata = indata.splitlines()
-  ix=0
-  while ix < len(indata):
-    indata[ix] = int(indata[ix])
-    ix += 1
+    indata = input_file.read()
+    indata = indata.splitlines()
+    ix = 0
+    while ix < len(indata):
+        indata[ix] = int(indata[ix])
+        ix += 1
 
-  input_file.close()
-  return indata
+    input_file.close()
+    return indata
+
 
 indata = read_file_into_int_list("aoc-01-input.txt")
 
@@ -32,15 +34,14 @@ indata = read_file_into_int_list("aoc-01-input.txt")
 # -1, -2, -3 results in -6
 # Starting with a frequency of zero, what is the resulting frequency after all of the changes in frequency have been applied?
 
-print ("Part 1");
+print("Part 1")
 sum = 0
 for value in indata:
-  sum += value
+    sum += value
 
 print("The answer is: {0}".format(sum))
 
 # 536 is the right answer
-
 
 
 # --- Part Two ---
@@ -72,12 +73,12 @@ currentFrequency = 0
 table = {}
 result = None
 while(result is None):
-  for value in indata:
-    currentFrequency += value
-    if currentFrequency in table:
-      result = currentFrequency
-      break
-    table[currentFrequency] = 1
+    for value in indata:
+        currentFrequency += value
+        if currentFrequency in table:
+            result = currentFrequency
+            break
+        table[currentFrequency] = 1
 
 print("The answer is: {0}".format(result))
 

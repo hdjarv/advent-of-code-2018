@@ -1,46 +1,54 @@
 print("Advent of Code 2018 - Day 2")
 
+
 def read_file_lines_list(name):
-  input_file = open(name)
+    input_file = open(name)
 
-  indata = input_file.read();
-  indata = indata.splitlines()
+    indata = input_file.read()
+    indata = indata.splitlines()
 
-  input_file.close()
-  return indata
+    input_file.close()
+    return indata
+
 
 def create_frequency_table(s):
-  result = {}
-  for c in s:
-    result[c] = result[c] + 1 if c in result else 1
-  return result
+    result = {}
+    for c in s:
+        result[c] = result[c] + 1 if c in result else 1
+    return result
+
 
 def frequency_table_filter(n):
-  def do_filter(tab):
-    for key in tab:
-      if tab[key] == n:
-        return True
-    return False
+    def do_filter(tab):
+        for key in tab:
+            if tab[key] == n:
+                return True
+        return False
 
-  return do_filter
+    return do_filter
+
 
 def string_diff_count(s1, s2):
-  i = 0
-  diff = 0
-  while i < len(s1):
-    diff += 1 if s1[i] != s2[i] else 0
-    i += 1
-  return diff
+    i = 0
+    diff = 0
+    while i < len(s1):
+        diff += 1 if s1[i] != s2[i] else 0
+        i += 1
+    return diff
+
 
 def string_union(s1, s2):
-  result = ""
-  ix = 0
-  while ix < len(s1):
-    result += s1[ix] if s1[ix] == s2[ix] else ""
-    ix += 1
-  return result
+    result = ""
+    ix = 0
+    while ix < len(s1):
+        result += s1[ix] if s1[ix] == s2[ix] else ""
+        ix += 1
+    return result
+
 
 indata = read_file_lines_list("aoc-02-input.txt")
+
+# --- Part One ---
 
 # To make sure you didn't miss any, you scan the likely candidate boxes again, counting the number that have an ID containing exactly two of any letter and then separately counting those with exactly three of any letter. You can multiply those two counts together to get a rudimentary checksum and compare it to what your device predicts.
 
@@ -58,7 +66,7 @@ indata = read_file_lines_list("aoc-02-input.txt")
 
 # What is the checksum for your list of box IDs?
 
-print ("Part 1");
+print("Part 1")
 
 indataFrequencyTables = list(map(create_frequency_table, indata))
 indataWith2s = list(filter(frequency_table_filter(2), indataFrequencyTables))
@@ -87,18 +95,20 @@ print("The answer is {0}".format(len(indataWith2s)*len(indataWith3s)))
 
 print("Part 2")
 
+
 def solvePart2(indata):
-  ix = 0
-  while ix < len(indata):
-    curstr = indata[ix]
-    ix2 = 0
-    while ix2 < len(indata):
-      if ix2 != ix:
-        teststr = indata[ix2]
-        if string_diff_count(curstr, teststr) == 1:
-          return [curstr, teststr]
-      ix2 += 1
-    ix += 1
+    ix = 0
+    while ix < len(indata):
+        curstr = indata[ix]
+        ix2 = 0
+        while ix2 < len(indata):
+            if ix2 != ix:
+                teststr = indata[ix2]
+                if string_diff_count(curstr, teststr) == 1:
+                    return [curstr, teststr]
+            ix2 += 1
+        ix += 1
+
 
 result = solvePart2(indata)
 
