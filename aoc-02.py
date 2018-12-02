@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 print("Advent of Code 2018 - Day 2")
 
 
