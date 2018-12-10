@@ -1,8 +1,16 @@
 NOTES.md
-.bak
+*.bak
 
-# Created by https://www.gitignore.io/api/vscode,python
-# Edit at https://www.gitignore.io/?templates=vscode,python
+
+# Created by https://www.gitignore.io/api/code,python
+# Edit at https://www.gitignore.io/?templates=code,python
+
+### Code ###
+# Visual Studio Code - https://code.visualstudio.com/
+.settings/
+.vscode/
+tsconfig.json
+jsconfig.json
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
@@ -124,6 +132,4 @@ dmypy.json
 ### Python Patch ###
 .venv/
 
-#!! ERROR: vscode is undefined. Use list command to see defined gitignore types !!#
-
-# End of https://www.gitignore.io/api/vscode,python
+# End of https://www.gitignore.io/api/code,python
